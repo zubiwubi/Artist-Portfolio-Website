@@ -1,0 +1,38 @@
+*, 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.img {
+  margin-right: 20px;
+  padding: 60px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  background: #fa4f7d;
+  color: white;
+  font-size: 30px;
+  justify-content: center;
+}
+
+.header img {
+  display: flex;
+  margin-top:20px;
+  margin-bottom:20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.highlight {
+  display: inline-block;
+  width: 300px;
+  height: 100px;
+  background: #1e2535;
+  color: white;
+}
