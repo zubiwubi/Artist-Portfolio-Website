@@ -1,5 +1,7 @@
 import './App.css'
 import { GenericSection } from './components/GenericSection';
+import { GenericFooter } from './components/GenericFooter';
+import { ProductPage } from './webpages/ProductPage';
 
 const name = "Piet";
 
@@ -17,6 +19,15 @@ function HomeSection(){
   </>
 }
 
+function Header() {
+  return (
+    <>
+      <h1>Title</h1>
+      <p>Subtitle</p>
+    </>
+  );
+}
+
 function App(): React.JSX.Element {
 
   // Here goes your TS code
@@ -32,10 +43,13 @@ function App(): React.JSX.Element {
   return (
     <>
     <h1> Welcome to my app </h1>
+    <ProductPage />
+    <Header />
     <HomeSection /> 
     <ProductCard />
     <GenericSection name={"Laptop"} description={"test"} className={"Laptop"} />
     <Greeting />
+    <GenericFooter />
     </>
   )
 }
