@@ -1,3 +1,21 @@
-.product-display {
-    display: flex;
+*, 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    min-height: 800px;
+    display: grid;
+    align-items: center;
+}
+
+.product-card {
+    justify-content: center;
+    align-items: center;
+    border: 8px solid;
+    background-color: rgb(121, 40, 66);
+    color:rgb(249, 220, 232);
+    height: 200px;
+    width: 200px;
 }

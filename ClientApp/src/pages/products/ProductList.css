@@ -1,0 +1,12 @@
+.product-container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    min-height: 495px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    gap: 1em;
+    justify-items: center;
+    justify-content: center;
+}

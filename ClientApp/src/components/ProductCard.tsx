@@ -1,16 +1,15 @@
+import "./ProductCard.css"
+import type { Product } from "../types/Product"
 
+type ProductCardProps = {
+  product: Product;
+};
 
-type ProductCardPropType = {
-    title: string,
-    description: string,
-    price?: Number //optional price variable
-}
-
-export function ProductCard(props: ProductCardPropType) {
-    return <div className="product-card">
-        <h5>{props.title}</h5>
-        <p>{props.description}</p>
-        <span>{props.price?.toString() ?? "-1"}</span>
+export function ProductCard({ product }: ProductCardProps) {
+  return (
+    <div className="product-card">
+      <h3>{product.name}</h3>
+      <p>€{product.price}</p>
     </div>
+  );
 }
-

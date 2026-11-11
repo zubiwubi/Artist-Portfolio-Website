@@ -1,7 +1,7 @@
 export function GenericFooter() {
     return <>
         <footer>
-            copyright 2027
+            <small>copyright 2027</small>
         </footer>
     </>
 }
