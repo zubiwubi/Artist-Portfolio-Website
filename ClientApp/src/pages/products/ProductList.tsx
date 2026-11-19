@@ -4,13 +4,14 @@ import "./ProductList.css";
 
 type ProductListProps = {
   products: Product[];
+  onDelete: (id: number) => void;
 };
 
-export function ProductList({ products }: ProductListProps) {
+export function ProductList({ products, onDelete }: ProductListProps) {
   return (
     <div className="product-container">
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} onDelete={onDelete}/>
       ))}
     </div>
   );
