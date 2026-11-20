@@ -1,5 +1,5 @@
 import type { Product } from "../../types/Product";
-import { ProductCard } from "../../components/ProductCard";
+import { ProductCard } from "./ProductCard";
 import "./ProductList.css";
 
 type ProductListProps = {

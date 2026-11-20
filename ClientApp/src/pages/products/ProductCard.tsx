@@ -1,5 +1,7 @@
-import "./ProductCard.css"
-import type { Product } from "../types/Product"
+//import "./ProductCard.css"
+
+import type { Product } from "../../types/Product";
+import styles from "./ProductCard.module.css";
 
 type ProductCardProps = {
   product: Product;
@@ -9,7 +11,7 @@ type ProductCardProps = {
 
 export function ProductCard({ product, onEdit, onDelete }: ProductCardProps) {
   return (
-    <div className="product-card">
+    <div className={styles.card}>
       <h3>{product.name}</h3>
       <p>€{product.price}</p>
       <button onClick={() => onEdit(product)}>Edit</button>

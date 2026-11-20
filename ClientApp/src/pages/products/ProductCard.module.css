@@ -1,0 +1,10 @@
+/* // The .module.css in the file name tells Vite this is a CSS Module:
+ it renames every class in the file to something unique, and hands you the new names as an object, 
+ so styles.card is whatever it came up with.  */
+
+.card {
+  border: 1px solid #ffbcd4;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
