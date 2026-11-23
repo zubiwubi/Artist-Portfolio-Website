@@ -10,8 +10,8 @@ export function Layout() {
                 <nav>
                     <Link to="/">Home </Link>
                     <Link to="/products">Products </Link>
-                    { user ? ( <button onClick={logout}>LOG OUT ({user.username})</button> ) : ( <Link to="/login">LOG IN</Link> ) }
                     <Link to="/artworks">Artworks </Link>
+                    { user ? ( <button onClick={logout}>LOG OUT ({user.username})</button> ) : ( <Link to="/login"><button>LOG IN</button></Link> ) }
                 </nav>
             </header>
             <main>
