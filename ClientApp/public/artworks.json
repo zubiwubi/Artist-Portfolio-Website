@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "artwork-title": "Escape from React",
+        "artist": "Zubi",
+        "creation-date": "23-11-2026" 
+    },
+    {
+        "id": 2,
+        "artwork-title": "I Forget about Vite",
+        "artist": "Zubi",
+        "creation-date": "22-11-2026" 
+    }
+]
