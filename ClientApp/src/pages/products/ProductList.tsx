@@ -3,7 +3,7 @@ import { ProductCard } from "./ProductCard";
 import "./ProductList.css";
 
 type ProductListProps = {
-  products: Product[]
+  products: Product[] | null;
   onEdit: (product: Product) => void;
   onDelete: (id: number) => void;
 };
@@ -11,7 +11,7 @@ type ProductListProps = {
 export function ProductList({ products, onDelete, onEdit }: ProductListProps) {
   return (
     <div className="product-container">
-      {products.map((product) => (
+      {products?.map((product) => (
         <ProductCard key={product.id} product={product} onDelete={onDelete} onEdit={onEdit}/>
       ))}
     </div>

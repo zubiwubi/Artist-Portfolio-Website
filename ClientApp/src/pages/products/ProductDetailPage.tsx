@@ -2,9 +2,9 @@
 // so here you get id, like we specified in the route. 
 // (It's always a string, never a number, which is fine for us because it goes straight into a URL.)
 
-import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
 import type { Product } from "../../types/Product";
+import { useFetch } from "../../hooks/useFetch";
 
 type ProductResponse = {
     id: number;
@@ -12,38 +12,21 @@ type ProductResponse = {
     price: number;
 };
 
-export function ProductDetailPage(){
+export function ProductDetailPage() {
     const { id } = useParams();
-    const [product, setProduct] = useState<Product | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const {
+        data: product,
+        loading,
+        error,
+    } = useFetch<ProductResponse, Product>(`/products/${id}.json`, (raw) => ({
+        id: raw.id,
+        name: raw.title,
+        price: raw.price,
+    }));
 
-    useEffect(() => {
-        async function loadProducts() {
-            try {
-                const response = await fetch(`/products/${id}.json`);
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                const data: ProductResponse = await response.json();
-                setProduct({ id: data.id, name: data.title, price: data.price});
-            } catch (err) {
-                console.error(err);
-                setError("Could not load this product.");
-            } finally {
-                setLoading(false);
-            }
-        }
-        loadProducts();
-    }, [id]);
+    if (loading) { return <p>Loading product...</p>;}
 
-    if (loading) {
-        return <p>Loading products...</p>
-    }
-
-    if (error || !product) {
-        return <p>{error ?? "Product not found."} </p>
-    }
+    if (error || !product) { return <p>{error ?? "Product not found."} </p> }
 
     return (
         <div>
