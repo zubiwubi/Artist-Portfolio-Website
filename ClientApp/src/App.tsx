@@ -9,6 +9,7 @@ import { ArtworkPage } from './pages/artworks/ArtPage.tsx';
 import { Routes, Route, Link } from "react-router";
 import { Layout } from './components/Layout.tsx';
 import { NotFoundPage } from './pages/NotFoundPage.tsx';
+import { ProductDetailPage } from './pages/products/ProductDetailPage.tsx';
 
 
 function App(): React.JSX.Element {
@@ -20,7 +21,7 @@ function App(): React.JSX.Element {
           <Route path="/" element={<Layout />}>
             <Route index element={<StartPage />} />
             <Route path="/products" element={<ProductPage />} />
-            {/* <Route path="/products/:id" element={<ProductDetailPage />} /> */}
+            <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/artworks" element={<ArtworkPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
