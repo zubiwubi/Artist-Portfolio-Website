@@ -4,6 +4,7 @@ import { ProductPage } from './pages/products/ProductPage.tsx';
 import { StartPage } from './pages/start/StartPage.tsx';
 import './index.css';
 import './styles/styles.css';
+import { ArtworkPage } from './pages/artworks/ArtPage.tsx';
 
 
 function App(): React.JSX.Element {
@@ -12,8 +13,8 @@ function App(): React.JSX.Element {
     <>
     <h1> 2026 </h1>
     <StartPage />
+    <ArtworkPage />
     <ProductPage />
-    {/* <GenericSection name={"Laptop"} description={"Laptop's description test"} className={"Laptop"} /> */}
     <GenericFooter />
     </>
   )

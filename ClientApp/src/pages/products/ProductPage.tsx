@@ -8,7 +8,7 @@ import { ProductList } from "./ProductList";
     id: number;
     title: string;
     price: number;
-  }; // our type that we have
+  }; // what we get from the json!!!
 
 export function ProductPage() {
   const [products, setProducts] = useState<Product[]>([]);
