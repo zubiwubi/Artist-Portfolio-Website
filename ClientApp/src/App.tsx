@@ -10,7 +10,8 @@ import { Routes, Route, Link } from "react-router";
 import { Layout } from './components/Layout.tsx';
 import { NotFoundPage } from './pages/NotFoundPage.tsx';
 import { ProductDetailPage } from './pages/products/ProductDetailPage.tsx';
-
+import { LoginPage } from './auth/LoginPage.tsx';
+import { ProtectedRoute } from './auth/ProtectedRoute.tsx';
 
 function App(): React.JSX.Element {
   
@@ -20,8 +21,13 @@ function App(): React.JSX.Element {
       <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<StartPage />} />
-            <Route path="/products" element={<ProductPage />} />
-            <Route path="/products/:id" element={<ProductDetailPage />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route 
+              path="products" 
+              element={<ProtectedRoute> <ProductPage /> </ProtectedRoute>} />
+            <Route 
+              path="products/:id" 
+              element={<ProtectedRoute> <ProductDetailPage /> </ProtectedRoute>} />
             <Route path="/artworks" element={<ArtworkPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
