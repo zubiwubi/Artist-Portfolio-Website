@@ -32,3 +32,9 @@ When you are not sure if something needs a refactor, these are the questions to 
 6. Does data still flow one way, down through props, with actions reported back up through callbacks, and no child reaching into a parent?
 7. Are shared types defined once and imported, not copied?
 
+# css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
