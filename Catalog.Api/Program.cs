@@ -8,6 +8,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+await SeedData.InitializeAsync(app);
+
 app.MapGet("/", () => "Catalog API is running");
 
 app.Run();
