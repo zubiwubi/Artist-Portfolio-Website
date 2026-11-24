@@ -17,9 +17,21 @@ builder.Services.AddScoped<IProductService, ProductService>(); //does the same f
 
 builder.Services.AddControllers();// + app.MapControllers(); are the two lines that find our controller and hook its methods up to their URLs. 
 
+var frontendUrl = builder.Configuration["Frontend:Url"]
+    ?? throw new InvalidOperationException("Missing configuration value Frontend:Url");
+
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.WithOrigins(frontendUrl)
+                                                                             .AllowAnyHeader()
+                                                                             .AllowAnyMethod()));
+// withOrigins is where you can give it a list of origins that get the permission header
+// AddDefaultPolicy defines the one policy this app has
+// AllowAnyHeader and AllowAnyMethod open up the what for that one trusted who
+
 var app = builder.Build();
 
 await SeedData.InitializeAsync(app);
+
+app.UseCors(); // UseCors() without arguments applies it to every request.
 
 app.MapControllers();
 

@@ -5,6 +5,7 @@
 import { useParams, Link } from "react-router";
 import type { Product } from "../../types/Product";
 import { useFetch } from "../../hooks/useFetch";
+import * as productsApi from "../../api/products";
 
 type ProductResponse = {
     id: number;
@@ -18,11 +19,7 @@ export function ProductDetailPage() {
         data: product,
         loading,
         error,
-    } = useFetch<ProductResponse, Product>(`/products/${id}.json`, (raw) => ({
-        id: raw.id,
-        name: raw.title,
-        price: raw.price,
-    }));
+    } = useFetch(() => productsApi.getById(Number(id)), [id]);
 
     if (loading) { return <p>Loading product...</p>;}
 

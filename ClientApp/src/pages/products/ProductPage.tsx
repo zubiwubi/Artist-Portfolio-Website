@@ -4,18 +4,15 @@ import type { Product } from "../../types/Product";
 import { ProductForm } from "./ProductForm";
 import { ProductList } from "./ProductList";
 import { useFetch } from "../../hooks/useFetch";
-
-type ProductResponse = {
-  id: number;
-  title: string;
-  price: number;
-}; // what we get from the json!!!
+import * as productsApi from "../../api/products"
 
 export function ProductPage() {
-  const { data: products, setData: setProducts, loading, error } = 
-  useFetch<ProductResponse[], Product[]>("/products.json", (raw) =>
-    raw.map((item) => ({ id: item.id, name: item.title, price: item.price })),
-  );
+  const {
+    data: products,
+    loading,
+    error,
+    setData: setProducts,
+  } = useFetch(productsApi.getAll, []);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
   function addProduct(name: string, price: number) {
