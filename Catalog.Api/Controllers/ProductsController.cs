@@ -32,4 +32,21 @@ public class ProductsController : ControllerBase
         var created = await _products.CreateAsync(dto);
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
     }
+
+    [HttpDelete("{id:int}")] // handles DELETE api/products/5
+    public async Task<IActionResult> Delete(int id)
+    {
+        var deleted = await _products.DeleteAsync(id);
+        return deleted? NoContent() : NotFound();
+    }
+    // If the service deleted something: 204 No Content
+    // If there was nothing: 404 Not Found
+
+    [HttpPut("{id:int}")] //  handles PUT api/products/5
+    public async Task<ActionResult<ProductDto>> Update(int id, UpdateProductDto dto)
+    {
+        var updated = await _products.UpdateAsync(id, dto);
+        return updated is null ? NotFound() : Ok(updated);
+    }
+    //Note that PUT means "replace the whole resource with what I am sending".
 }

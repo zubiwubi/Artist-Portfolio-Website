@@ -14,6 +14,10 @@ public record CreateProductDto
 {
     public string Title { get; init; } = string.Empty;
     public decimal Price { get; init; }
-}
+} // with this set-up, it will take whatever data the client gives as long as it has an id, title and price. (so as long as the shape fits)
 
-// with this set-up, it will take whatever data the client gives as long as it has an id, title and price. (so as long as the shape fits)
+public record UpdateProductDto
+{
+    public string Title { get; set; } = string.Empty;
+    public decimal Price { get; set; }
+}

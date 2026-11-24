@@ -10,7 +10,14 @@ GET {{baseUrl}}/api/products/1
 POST {{baseUrl}}/api/products
 Content-Type: application/json
 
+### Delete a product
+DELETE {{baseUrl}}/api/products/5
+
+### Update a product
+PUT {{baseUrl}}/api/products/1
+Content-Type: application/json
+
 {
-  "title": "Keyboard",
-  "price": 90
+  "title": "Fancy Laptop",
+  "price": 2500
 }

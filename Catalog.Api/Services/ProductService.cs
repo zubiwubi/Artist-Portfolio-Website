@@ -2,6 +2,7 @@ using Catalog.Api.Services;
 using Catalog.Api.Models;
 using Catalog.Api.Repositories;
 using Catalog.Api.Dtos;
+using Catalog.Api.Controllers;
 
 namespace Catalog.Api.Services;
 
@@ -42,10 +43,34 @@ public class ProductService : IProductService
         return ToDto(product);
     }
 
+    public async Task<bool> DeleteAsync(int id)
+    {
+        var product = await _products.GetByIdAsync(id);
+        if (product is null) return false;
+
+        _products.Delete(product);
+        await _products.SaveChangesAsync();
+
+        return true;
+    } // It looks the product up first with _products.GetByIdAsync(id). If there's nothing with that id, it returns false, so the controller can turn that into a "not found".
+
     private static ProductDto ToDto(Product product) => new()
     {
         Id = product.Id,
         Title = product.Title,
         Price = product.Price
     };
+
+    public async Task<ProductDto?> UpdateAsync(int id, UpdateProductDto dto)
+    {
+        var product = await _products.GetByIdAsync(id);
+        if (product is null) return null;
+
+        product.Title = dto.Title;
+        product.Price = dto.Price;
+        await _products.SaveChangesAsync();
+        return ToDto(product);
+    }
+    //It asks the repository for the product. 
+    //If there's none, it returns null, and the controller will turn that into a 404
 }
