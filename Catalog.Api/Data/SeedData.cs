@@ -16,7 +16,7 @@ public static class SeedData
         }
 
         context.Products.AddRange(
-            new Product { Title = "Seeded Laptop", Price = 666 },
+            new Product { Title = "Seeded Laptop", Price = 1200 },
             new Product { Title = "Organic Phone", Price = 667 },
             new Product { Title = "Plantphones", Price = 668 }
         );
