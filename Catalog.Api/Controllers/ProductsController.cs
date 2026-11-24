@@ -25,4 +25,11 @@ public class ProductsController : ControllerBase
         var product = await _products.GetByIdAsync(id);
         return product is null ? NotFound() : Ok(product);
     }
+
+    [HttpPost]
+    public async Task<ActionResult<ProductDto>> Create(CreateProductDto dto)
+    {
+        var created = await _products.CreateAsync(dto);
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+    }
 }

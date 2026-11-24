@@ -1,0 +1,16 @@
+@baseUrl = http://localhost:5088
+
+### Get all products
+GET {{baseUrl}}/api/products
+
+### Get one product
+GET {{baseUrl}}/api/products/1
+
+### Create a product
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "title": "Keyboard",
+  "price": 90
+}
