@@ -1,5 +1,6 @@
 export const baseUrl = import.meta.env.VITE_API_URL; 
 
+// The app won't start if the VITE_API_URL is missing
 if (!baseUrl) {
   throw new Error(
     "VITE_API_URL is missing. Create ClientApp/.env and restart the dev server.",

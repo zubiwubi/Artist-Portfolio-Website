@@ -33,6 +33,6 @@ await SeedData.InitializeAsync(app);
 
 app.UseCors(); // UseCors() without arguments applies it to every request.
 
-app.MapControllers();
+app.MapControllers(); // MapControllers on app hooks each action up to its URL: how requests are handled. Without it: the request is a 404
 
 app.Run();
